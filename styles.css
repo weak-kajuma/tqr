@@ -72,8 +72,7 @@ input:focus {
   font-size: 0.95rem;
 }
 
-button,
-.secondary {
+button {
   display: inline-flex;
   justify-content: center;
   align-items: center;
@@ -82,7 +81,6 @@ button,
   padding: 11px 16px;
   font-size: 1rem;
   cursor: pointer;
-  text-decoration: none;
 }
 
 .primary {
@@ -96,21 +94,47 @@ button,
   background: var(--primary-dark);
 }
 
-.qr-card {
-  text-align: center;
+.qr-container {
+  place-items: stretch;
+  padding: 10px;
+}
+
+.qr-minimal {
+  width: 100%;
+  min-height: calc(100dvh - 20px);
+  display: flex;
+  flex-direction: column;
+}
+
+.qr-topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4px 2px 8px;
+}
+
+.id-only {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.icon-button {
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: #fee2e2;
+  color: #7f1d1d;
+  font-size: 1.25rem;
+  line-height: 1;
 }
 
 .qr-stage {
-  margin: 10px 0 14px;
-  width: 100%;
-  overflow: hidden;
-  border-radius: 12px;
-  background: #f9fafb;
-  border: 1px solid #e5e7eb;
-  touch-action: none;
-  min-height: 320px;
+  flex: 1;
   display: grid;
   place-items: center;
+  touch-action: none;
+  overflow: visible;
 }
 
 .qr-box {
@@ -122,42 +146,8 @@ button,
 .qr-box img,
 .qr-box canvas {
   display: block;
-  max-width: 100%;
+  max-width: none;
   height: auto;
-}
-
-.zoom-controls {
-  display: flex;
-  gap: 8px;
-  justify-content: center;
-  margin-bottom: 10px;
-}
-
-.zoom-controls button {
-  background: #eef2ff;
-  color: #1e3a8a;
-  min-width: 64px;
-  border: 1px solid #c7d2fe;
-}
-
-.id-label {
-  color: var(--muted);
-  margin: 10px 0 18px;
-}
-
-.actions {
-  display: grid;
-  gap: 10px;
-}
-
-.secondary {
-  background: #e5e7eb;
-  color: #111827;
-}
-
-.danger {
-  background: #fee2e2;
-  color: #7f1d1d;
 }
 
 @media (min-width: 700px) {
@@ -167,5 +157,9 @@ button,
 
   h1 {
     font-size: 1.9rem;
+  }
+
+  .id-only {
+    font-size: 1.25rem;
   }
 }

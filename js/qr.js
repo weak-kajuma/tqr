@@ -2,10 +2,6 @@
   const idValueElement = document.getElementById("id-value");
   const qrBox = document.getElementById("qr-box");
   const qrStage = document.getElementById("qr-stage");
-
-  const zoomInButton = document.getElementById("zoom-in");
-  const zoomOutButton = document.getElementById("zoom-out");
-  const zoomResetButton = document.getElementById("zoom-reset");
   const clearIdButton = document.getElementById("clear-id");
 
   const savedId = window.idCookie.getIdCookie();
@@ -18,15 +14,14 @@
 
   new QRCode(qrBox, {
     text: savedId,
-    width: 260,
-    height: 260,
+    width: 280,
+    height: 280,
     correctLevel: QRCode.CorrectLevel.M,
   });
 
   let scale = 1;
-  const minScale = 0.7;
-  const maxScale = 4;
-  const step = 0.15;
+  const minScale = 0.6;
+  const maxScale = 6;
 
   const activePointers = new Map();
   let pinchStartDistance = null;
@@ -37,23 +32,7 @@
 
   const applyScale = () => {
     qrBox.style.transform = `scale(${scale})`;
-    zoomResetButton.textContent = `${Math.round(scale * 100)}%`;
   };
-
-  zoomInButton.addEventListener("click", () => {
-    scale = clamp(scale + step);
-    applyScale();
-  });
-
-  zoomOutButton.addEventListener("click", () => {
-    scale = clamp(scale - step);
-    applyScale();
-  });
-
-  zoomResetButton.addEventListener("click", () => {
-    scale = 1;
-    applyScale();
-  });
 
   qrStage.addEventListener("pointerdown", (event) => {
     qrStage.setPointerCapture(event.pointerId);
