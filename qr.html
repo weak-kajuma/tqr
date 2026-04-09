@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QR表示 | QR Viewer</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="container qr-container">
+      <section class="qr-minimal">
+        <div class="qr-topbar">
+          <p class="id-only" id="id-value"></p>
+          <button type="button" id="clear-id" class="icon-button" aria-label="保存したIDを削除">×</button>
+        </div>
+
+        <div class="qr-stage" id="qr-stage">
+          <div id="qr-box" class="qr-box" role="img" aria-label="ID番号のQRコード"></div>
+        </div>
+      </section>
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script src="js/cookies.js"></script>
+    <script src="js/qr.js"></script>
+  </body>
+</html>
